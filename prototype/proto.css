@@ -1,3 +1,4 @@
+/* CSS Reset */
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -58,21 +59,8 @@ body {
 }
 
 /* After reset */
-
-.wrapper {
-  display: flex;
-  background: #101012;
-  max-width: 812px;
-  padding: 0 16px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .flex-list {
-  max-width: 812px;
+  max-width: 700px;
   padding: 0 16px;
   margin: 0 auto;
   display: flex;
@@ -81,8 +69,6 @@ body {
   align-items: center;
   background: #33343e;
 }
-
-/*812x375 is iPhone 11*/
 
 .flex-item1 {
   padding: 10px;
@@ -101,8 +87,6 @@ body {
 .proglabel {
   font-size: 0.5em;
 }
-/* progress bar 
-
 
 /*The progress element*/
 
@@ -145,6 +129,37 @@ body {
   height: 0.3em;
 }
 
+/* inner container */
+.inner-wrap {
+  width: 100%;
+  height: 1000px;
+  background: #101012;
+  max-width: 700px;
+  padding: 0 16px;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*Inner weather component*/
+.flex-list-inner {
+  max-width: 700px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(87, 88, 91, 1) 50%,
+    rgba(100, 101, 104, 1) 100%
+  );
+  border-radius: 5px;
+}
+
+.weatherwrap{
+  margin: 10px;
+}
 /*
 \f1\b Progress bar - orange
 \f0\b0 \
