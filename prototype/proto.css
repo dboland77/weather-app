@@ -1,8 +1,9 @@
 /* CSS Reset */
 html {
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 400;
 }
 
 *,
@@ -61,11 +62,6 @@ a {
   --main-bg-colour: #32343d;
   --header-bg-colour: #33343e;
   --inner-bg-colour: #101012;
-}
-body {
-  font-family: "Open Sans Condensed", sans-serif;
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-weight: 400;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Yanone+Kaffeesatz:wght@200;400&display=swap");
