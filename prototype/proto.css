@@ -135,12 +135,11 @@ body {
   height: 1000px;
   background: #101012;
   max-width: 700px;
-  padding: 0 16px;
-  margin: 0 auto;
-  align-items: center;
-  position: relative;
+  padding: 0 10px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
 }
 /*Inner weather component*/
 .flex-list-inner {
@@ -155,10 +154,11 @@ body {
     rgba(100, 101, 104, 1) 100%
   );
   border-radius: 5px;
+  margin: 10px;
 }
 
-.weatherwrap{
-  margin: 10px;
+.weatherwrap {
+  margin-top: 0px;
 }
 /*
 \f1\b Progress bar - orange
