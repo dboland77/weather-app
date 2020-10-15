@@ -8,7 +8,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body,
@@ -53,89 +53,114 @@ a {
   text-decoration: none;
 }
 
+/* After reset */
+:root {
+  --maximum-width: 350px;
+  --maximum-length: 650px;
+  --progress-colour: #f39f00;
+  --main-bg-colour: #32343d;
+  --header-bg-colour: #33343e;
+  --inner-bg-colour: #101012;
+}
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: 400;
 }
 
-/* After reset */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Yanone+Kaffeesatz:wght@200;400&display=swap");
+
+.header1 {
+  margin-top: 50px;
+  background: var(--header-bg-colour);
+  max-width: var(--maximum-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
 .flex-list {
-  max-width: 700px;
-  padding: 0 16px;
+  max-width: var(--maximum-width);
   margin: 0 auto;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background: #33343e;
+  background: var(--header-bg-colour);
 }
 
 .flex-item1 {
-  padding: 10px;
   color: white;
-  font-weight: bold;
-  text-align: center;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.flex-item2:before {
+  content: "...";
+  display: block;
+  position: absolute;
+  right: 62px;
+  top: -15px;
+  color: var(--progress-colour);
+  font-size: 26px;
 }
 
 .flex-item2 {
-  border: 2px solid black;
   color: white;
-  font-weight: bold;
-  text-align: center;
+  text-align: right;
+  position: relative;
+  font-size: 12px;
 }
 
-.proglabel {
-  font-size: 0.5em;
+.flex-item2:after {
+  content: "...";
+  display: block;
+  position: absolute;
+  right: -23px;
+  top: -15px;
+  color: var(--progress-colour);
+  font-size: 26px;
+}
+
+.flex-item3 {
+  color: white;
+  text-align: right;
+  flex: 2 0 auto;
 }
 
 /*The progress element*/
-
-.Progress-label {
-  font-size: 0.5em;
-  font-family: Helvetica, sans-serif;
-  display: block;
+.progressSection {
+  margin-top: 20px;
 }
-.Progress-main {
-  background-color: red;
-  display: block;
-  width: 100%;
-  height: 0.3em;
-  margin-top: 0.75em;
-}
-.Progress-main::-moz-progress-bar {
-  background: #f39f00;
-}
-.Progress-main::-webkit-progress-bar {
-  background: #32343d;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
-}
-.Progress-main::-webkit-progress-value {
-  background: #f39f00;
-}
-.Progress-main::-ms-fill {
-  background: #f39f00;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) inset;
+.progressContainer {
+  height: 20px;
+  background-color: var(--header-bg-colour);
+  border-radius: 50px;
+  max-width: var(--maximum-width);
+  border: 2px solid black;
 }
 
-.Progress-bar {
-  margin-top: 0.95em;
-  background-color: #32343d;
-  height: 0.3em;
-  border-radius: 30%;
+.progressFill {
+  height: 100%;
+  width: 67%;
+  background-color: var(--progress-colour);
+  border-radius: inherit;
+  text-align: right;
 }
-.Progress-value {
-  background-color: #f39f00;
-  display: block;
-  height: 0.3em;
+
+.labelStyles {
+  margin-left: 5px;
+  width: 50px;
+  font-size: 0.6rem;
+  color: white;
+  padding: 5px;
 }
 
 /* inner container */
 .inner-wrap {
-  width: 100%;
-  height: 1000px;
-  background: #101012;
-  max-width: 700px;
-  padding: 0 10px;
+  height: var(--maximum-length);
+  background: var(--inner-bg-colour);
+  max-width: var(--maximum-width);
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -143,7 +168,6 @@ body {
 }
 /*Inner weather component*/
 .flex-list-inner {
-  max-width: 700px;
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -154,32 +178,9 @@ body {
     rgba(100, 101, 104, 1) 100%
   );
   border-radius: 5px;
-  margin: 10px;
+  height: 70px;
 }
 
 .weatherwrap {
-  margin-top: 0px;
+  margin-bottom: 10px;
 }
-/*
-\f1\b Progress bar - orange
-\f0\b0 \
-HEX: #f39f00 RBG(243,159,0)\
-background: #32343d RGB(50,52,61)\
-\
-
-\f1\b Header - grey
-\f0\b0 \
-HEX: #33343e RGB(51,52,62)\
-\
-
-\f1\b Main background:
-\f0\b0 \
-HEX: #101012 RGB(16,16,18)\
-\
-
-\f1\b weather bar:
-\f0\b0 \
-gradient: top to bottom - #57585b - RGB(87,88,91)\
-#646568 - RGB(100,101,104)\
-\
-*/
