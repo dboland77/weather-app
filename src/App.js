@@ -24,7 +24,7 @@ return(
   <ProgressBar/>
   </Header>
   <Layout>
-  <WeatherCard/>
+  <WeatherCard day="MON" temp="14" image="http://openweathermap.org/img/wn/02d.png"/>
   <WeatherCard/>
   </Layout>
   </React.Fragment>
