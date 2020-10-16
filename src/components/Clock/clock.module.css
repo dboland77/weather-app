@@ -1,0 +1,26 @@
+.clock:before {
+  content: "...";
+  display: block;
+  position: absolute;
+  right: 43px;
+  top: -17px;
+  color: var(--progress-colour);
+  font-size: 26px;
+}
+
+.clock {
+  color: white;
+  text-align: right;
+  position: relative;
+  font-size: 12px;
+}
+
+.clock:after {
+  content: "...";
+  display: block;
+  position: absolute;
+  right: -16px;
+  top: -17px;
+  color: var(--progress-colour);
+  font-size: 26px;
+}

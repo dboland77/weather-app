@@ -1,0 +1,27 @@
+/*The progress element*/
+.progressSection {
+  margin-top: 20px;
+}
+.progressContainer {
+  height: 20px;
+  background-color: var(--header-bg-colour);
+  border-radius: 50px;
+  max-width: var(--maximum-width);
+  border: 2px solid black;
+}
+
+.progressFill {
+  height: 100%;
+  width: 67%;
+  background-color: var(--progress-colour);
+  border-radius: inherit;
+  text-align: right;
+}
+
+.labelStyles {
+  margin-left: 5px;
+  width: 50px;
+  font-size: 0.6rem;
+  color: white;
+  padding: 5px;
+}

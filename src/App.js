@@ -1,25 +1,14 @@
 import React, {useEffect } from 'react';
-
+import {getForecast,getCurrentWeather} from "./components/APICall/APICall";
+import WeatherCard from './components/WeatherCard/WeatherCard';
+import Layout from "./components/Layout/Layout";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
+import Header from "./components/Header/Header";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const LONDON = process.env.REACT_APP_LONDON;
+const LONDON = 2643743;
 
-
-// City id rather than name is recommended so I am using this endpoint
-
-function getForecast( id, apiKey) {
-  const fivedayurl = "https://api.openweathermap.org/data/2.5/forecast?"
-
-  fetch(fivedayurl +'id=' + id+ '&appid=' + apiKey)  
-  .then(response => response.json()) 
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function() {
-    // catch any errors
-  });
-}
-
+// City id rather than name is recommended so I am using this
 
 function App() {  
     useEffect(() => {      
@@ -27,21 +16,18 @@ function App() {
       getForecast(LONDON, API_KEY); 
 }, []);  
 
-function getCurrentWeather( id, apiKey) {
-  const currenturl = "https://api.openweathermap.org/data/2.5/weather?"
 
-  fetch(currenturl +'id=' + id+ '&appid=' + apiKey)  
-  .then(response=>response.json()) 
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function() {
-    // catch any errors
-  });
-}
 
 return(
-  <h1> Checking API call (console log)</h1>
+  <React.Fragment>
+  <Header>
+  <ProgressBar/>
+  </Header>
+  <Layout>
+  <WeatherCard/>
+  <WeatherCard/>
+  </Layout>
+  </React.Fragment>
 )
 }
 

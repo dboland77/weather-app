@@ -1,0 +1,33 @@
+.flexList {
+  max-width: var(--maximum-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg-colour);
+}
+
+.flexItem {
+  color: white;
+  text-align: left;
+  margin-left: 5px;
+}
+
+.flexListInner {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(87, 88, 91, 1) 50%,
+    rgba(100, 101, 104, 1) 100%
+  );
+  border-radius: 5px;
+  height: 85px;
+}
+
+.weatherwrap {
+  margin-bottom: 10px;
+}

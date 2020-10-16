@@ -1,0 +1,24 @@
+.header1 {
+  margin-top: 50px;
+  background: var(--header-bg-colour);
+  max-width: var(--maximum-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+.flexList {
+  max-width: var(--maximum-width);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-bg-colour);
+}
+
+.flexItem1 {
+  color: white;
+  text-align: left;
+  margin-left: 5px;
+}
+
