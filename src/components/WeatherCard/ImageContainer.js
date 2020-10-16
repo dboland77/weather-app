@@ -9,7 +9,7 @@ return (
     alt="Weather"
   />
   <p>
-  clear sky
+  {props.text}
   </p>
 </div>
 )

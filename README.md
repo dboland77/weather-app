@@ -35,17 +35,21 @@ These contain the HTML and CSS for a mock-up of the design below:
 <img src ="./Front_End_Design.png">
 
 # Src/Components
+
 I split the components into individual folders containing the functionality and modular css specific to that component.
 
 ## Header
 
 ## Progress Bar
 
-## API Fetch
+## API Call
 
 ## Weather display
 
-## Clockface
+## Clock
+
+This component displays a digital 24 hour clock with the local time.
+It uses setInterval to control the time along with the useState and useEffect hooks.
 
 ## API Calls
 
@@ -56,6 +60,8 @@ We need two API calls
 
 I have used two separate functions to test the API calls
 each take the city id and api key as parameters.
+
+I obtain the weather with unit=metric for celsius results. 
 
 To hide the API key from being seen I am using REACT_APP environment variables for both (in the .env root file).
 
@@ -72,4 +78,4 @@ To ensure that these are populated when I call the API endpoints I hook them wit
 1. Full Testing using Jest and Enzyme.
 2. If the app continues to grow or more functionality is required it could be refactored to use Context for state management (or Redux).
 3. As the app looks like a mobile application we could make it fully mobile using a framework like [Ionic]("https://ionicframework.com/").
-4. Deploy to a hosting service like Netlify or Heroku. 
+4. Deploy to a hosting service like Netlify or Heroku.

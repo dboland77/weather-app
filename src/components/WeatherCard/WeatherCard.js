@@ -12,7 +12,10 @@ const WeatherCard = (props) => {
           <li className={styles.flexItem}>
              {props.temp} &deg;
           </li>
-          <ImageContainer image={props.image}/>
+          <ImageContainer 
+          image={props.image}
+            text={props.description}
+          />
         </ul>
       </div>
   )
