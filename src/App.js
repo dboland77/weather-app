@@ -1,4 +1,4 @@
-import React, {useState,useEffect } from 'react';
+import React, {useState,useEffect, useRef} from 'react';
 import WeatherCard from './components/WeatherCard/WeatherCard';
 import Layout from "./components/Layout/Layout";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
@@ -22,7 +22,8 @@ function App() {
   const [description, setDescription] = useState("");
   const [error,setError] = useState(null);
   const [forecast,setForecast] = useState([]);
-
+  const [reload, setReload] = useState(60);
+  
   // use setinterval to refresh the data every minute.
 
   useEffect( () => {
@@ -72,10 +73,40 @@ function getForecast(){
       setError(err.message);
     });
 }
+
+
+//Thank you Dan Abramov!
+// https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+useInterval(() => {
+  // Your custom logic here
+  setReload(reload=== 0 ? 60 : reload - 1);
+}, 1000);
+
+
   return(
     <React.Fragment>
    <Header city="LONDON" temp={temperature}>
-   <ProgressBar/>
+   <ProgressBar time={reload}/>
    </Header >
    <Layout>
    <WeatherCard 
