@@ -7,13 +7,13 @@ const Header = (props) =>{
     <header className = {styles.header1}>
     <ul className={styles.flexList}>
       <li className={styles.flexItem1}>
-        LONDON 
+        {props.city} 
       </li>
      <li>
        <Clock/>
      </li>
       <li className={styles.flexItem1}>
-        12 &deg;
+        {props.temp}&deg;
       </li>
     </ul>
     {props.children}

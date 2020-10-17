@@ -24,13 +24,15 @@ export function addOneDay(dt){
 //I am assuming that the current weather is day one
 // Will get the next four days and filter the JSON returned from
 // the API ("yyyy-mm-dd")
+// I am taking the weather from midday
 export function nextFourDays(currentDate){
 let nextFourDays=[];
 let formattedDate = "";
+const midday = "12:00:00"
 
 for (let i=0; i<4;i++){
     currentDate = addOneDay(currentDate);
-    formattedDate = formatAPIDate(currentDate);
+    formattedDate = `${formatAPIDate(currentDate)} ${midday}`;
     nextFourDays.push(formattedDate);
 }
 return nextFourDays;
@@ -54,10 +56,21 @@ return weekday[dayNumber];
 
 }
 
-// export function fiveDayFilter(data, nextFourDays) {
-//     let nextFourDays = nextFourDays(data.list[0].dt);
+export function fiveDayFilter(data) {
+    const IMAGE_URL=process.env.REACT_APP_IMAGE_URL;
+    let nextDays = nextFourDays(data.list[0].dt);
+    let results = []
 
+    for (let i=0; i <4; i++) {
+        let daysFiltered= data.list.filter(item => item.dt_txt.includes(nextDays[i]));
+        let thisDay = {};     
+        thisDay.day = getDayfromDate(daysFiltered[0].dt);
+        thisDay.date = formatAPIDate(daysFiltered[0].dt);
+        thisDay.temp = Math.round(daysFiltered[0].main.temp);
+        thisDay.desc = daysFiltered[0].weather[0].description;
+        thisDay.icon = `${IMAGE_URL}${daysFiltered[0].weather[0].icon}.png`;
+        results.push(thisDay);
+    }
 
-//     let daysFiltered = data.filter(item => item.dt_txt.includes(nextFourDays[i]));  
-// }
-
+    return results;
+}
