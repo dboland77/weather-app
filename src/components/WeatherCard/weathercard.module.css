@@ -1,3 +1,16 @@
+/*Animation for re-render*/
+
+.fadeIn[animate='1']{
+  animation: flip 2s ease-in;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(360deg);
+  }
+}
+
+
 .flexList {
   max-width: var(--maximum-width);
   margin: 0 auto;
@@ -26,8 +39,12 @@
   );
   border-radius: 5px;
   height: 85px;
+  transition: transform 0.8s;
 }
 
-.weatherwrap {
+ .weatherwrap {
   margin-bottom: 10px;
+  transition: ease-in 2s;
 }
+
+

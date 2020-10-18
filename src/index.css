@@ -1,10 +1,9 @@
 /* CSS Reset */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Yanone+Kaffeesatz:wght@200;400&display=swap");
 
-/* After reset */
 :root {
   --maximum-width: 350px;
-  --maximum-length: 650px;
+  --maximum-length: 500px;
   --progress-colour: #f39f00;
   --main-bg-colour: #32343d;
   --header-bg-colour: #33343e;

@@ -56,8 +56,7 @@ return weekday[dayNumber];
 
 }
 
-export function fiveDayFilter(data) {
-    const IMAGE_URL=process.env.REACT_APP_IMAGE_URL;
+export function fiveDayFilter(data,IMAGE_URL) {
     let nextDays = nextFourDays(data.list[0].dt);
     let results = []
 

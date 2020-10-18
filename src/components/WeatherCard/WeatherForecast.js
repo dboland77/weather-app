@@ -12,6 +12,7 @@ const WeatherForecast = (props) => {
           temp={day.temp} 
           image={day.icon}
             description={day.desc}
+            animate={props.animate}
   />
         )
       })}

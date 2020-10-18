@@ -7,22 +7,20 @@ import * as Utils from "./Utilities/Utilities";
 import WeatherForecast from './components/WeatherCard/WeatherForecast';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const IMAGE_URL=process.env.REACT_APP_IMAGE_URL;
+const IMAGE_URL="http://openweathermap.org/img/wn/";
+// City id rather than name is recommended so I am using this
 const LONDON = 2643743;
 const CURRENT_URL = `https://api.openweathermap.org/data/2.5/weather?units=metric&id=${LONDON}&appid=${API_KEY}`
 const FIVE_DAY_URL = `https://api.openweathermap.org/data/2.5/forecast?units=metric&id=${LONDON}&appid=${API_KEY}`
-
-// City id rather than name is recommended so I am using this
-
 
 function App() {  
   const [weatherImage, setWeatherImage] = useState("");
   const [temperature, setTemperature] = useState("");
   const [day,setDay] = useState("");
   const [description, setDescription] = useState("");
-  const [error,setError] = useState(null);
   const [forecast,setForecast] = useState([]);
   const [reload, setReload] = useState(60);
+  const[animate,setAnimate] = useState(0);
   
   // use setinterval to refresh the data every minute.
 
@@ -53,7 +51,7 @@ function App() {
       }
     })
     .catch(err => {
-      setError(err.message);
+      console.error(err);
     });
 }
 
@@ -63,14 +61,14 @@ function getForecast(){
     .then(response=>response.json()) 
     .then(function(data) {
       if (data.cod==="200"){  
-          setForecast(Utils.fiveDayFilter(data));
+          setForecast(Utils.fiveDayFilter(data,IMAGE_URL));
       }
       else {
         return false
       }
     })
     .catch(err => {
-      setError(err.message);
+      console.error(err);
     });
 }
 
@@ -100,6 +98,12 @@ function useInterval(callback, delay) {
 useInterval(() => {
   // Your custom logic here
   setReload(reload=== 0 ? 60 : reload - 1);
+  if (reload===0){
+    setAnimate(1)
+  }
+  if (reload === 58){
+    setAnimate(0)
+  }
 }, 1000);
 
 
@@ -114,8 +118,9 @@ useInterval(() => {
   temp={temperature} 
   image={weatherImage}
     description={description}
+    animate={animate}
   />
-  <WeatherForecast forecast={forecast}/>
+  <WeatherForecast forecast={forecast} animate={animate}/>
   </Layout>
   </React.Fragment>
 )

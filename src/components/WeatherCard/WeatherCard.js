@@ -4,7 +4,10 @@ import styles from "./weathercard.module.css";
 
 const WeatherCard = (props) => {
   return(
-    <div className = {styles.weatherwrap}>
+    
+    <div 
+    className = {`${styles.fadeIn} ${styles.weatherwrap}`}
+    animate={props.animate}>
         <ul className={styles.flexListInner}>
           <li className={styles.flexItem}>
             {props.day} 
@@ -18,7 +21,9 @@ const WeatherCard = (props) => {
           />
         </ul>
       </div>
+   
   )
 }
+
 
 export default WeatherCard;
