@@ -147,5 +147,3 @@ with the design brief for a period of at least 20 minutes.
 8. Refactor the code. 
 
 9. Add better error handling (just console logs for now).
-
-10. Complete the BONUS task!
